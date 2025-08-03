@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hussledigital.co.za/sitemap.xml
