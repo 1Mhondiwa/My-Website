@@ -29,6 +29,58 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Custom Dark Theme Styles -->
+    <style>
+        body {
+            background-color: #1a252f;
+        }
+        
+        /* Section backgrounds */
+        .container-fluid.py-5 {
+            background-color: #1a252f;
+        }
+        
+        /* Light sections that need dark background */
+        .bg-light {
+            background-color: #243447 !important;
+        }
+        
+        /* Card backgrounds */
+        .bg-light.shadow {
+            background-color: #243447 !important;
+            color: #e0e0e0;
+        }
+        
+        .bg-light h4,
+        .bg-light h5,
+        .bg-light h6 {
+            color: #2196F3 !important;
+        }
+        
+        .bg-light p {
+            color: #b0bec5 !important;
+        }
+        
+        /* Text adjustments for readability */
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+        }
+        
+        p, .text-muted {
+            color: #b0bec5 !important;
+        }
+        
+        /* Keep primary color text visible */
+        .text-primary {
+            color: #2196F3 !important;
+        }
+        
+        /* Footer adjustments */
+        .bg-dark {
+            background-color: #0f1920 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,7 +114,7 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0" style="background-color: #1a252f;">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
                 <!-- Logo integrated with brand name -->
                 <div class="d-flex align-items-center">
