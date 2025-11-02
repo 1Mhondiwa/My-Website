@@ -80,6 +80,26 @@
         .bg-dark {
             background-color: #0f1920 !important;
         }
+        
+        /* Form input styling */
+        .form-control::placeholder,
+        .form-select::placeholder {
+            color: #b0bec5 !important;
+            opacity: 1;
+        }
+        
+        .form-control,
+        .form-select {
+            color: #ffffff !important;
+        }
+        
+        .form-control:focus,
+        .form-select:focus {
+            background-color: #243447 !important;
+            color: #ffffff !important;
+            border-color: #2196F3 !important;
+            box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25) !important;
+        }
     </style>
 </head>
 
@@ -284,28 +304,28 @@
                        
                         <div class="row g-2 g-md-3">
                             <div class="col-12">
-                                <input type="text" name="name" class="form-control bg-white border-0 rounded-3" placeholder="Your Name" style="height: 45px;" required>
+                                <input type="text" name="name" class="form-control bg-light border-0 rounded-3 text-white" placeholder="Your Name" style="height: 45px; background-color: #243447 !important;" required>
                             </div>
                             <div class="col-12">
-                                <input type="email" name="email" class="form-control bg-white border-0 rounded-3" placeholder="Your Email" style="height: 45px;" required>
+                                <input type="email" name="email" class="form-control bg-light border-0 rounded-3 text-white" placeholder="Your Email" style="height: 45px; background-color: #243447 !important;" required>
                             </div>
                             <div class="col-12">
-                                <input type="tel" name="phone" class="form-control bg-white border-0 rounded-3" placeholder="Your Phone Number" style="height: 45px;">
+                                <input type="tel" name="phone" class="form-control bg-light border-0 rounded-3 text-white" placeholder="Your Phone Number" style="height: 45px; background-color: #243447 !important;">
                             </div>
                             <div class="col-12">
-                                <select name="service" class="form-select bg-white border-0 rounded-3" style="height: 45px;" required>
+                                <select name="service" class="form-select bg-light border-0 rounded-3 text-white" style="height: 45px; background-color: #243447 !important;" required>
                                     <option value="" selected disabled>Select A Package</option>
-                                    <option value="basic-starter">Basic Starter - Perfect for Startups</option>
-                                    <option value="standard-growth">Standard Growth - Ideal for Growing Businesses</option>
-                                    <option value="premium-enterprise">Premium Enterprise - Complete Business Transformation</option>
-                                    <option value="custom-solution">Custom Solution - Tailored to Your Needs</option>
+                                    <option value="basic-starter" style="background-color: #243447; color: #fff;">Basic Starter - Perfect for Startups</option>
+                                    <option value="standard-growth" style="background-color: #243447; color: #fff;">Standard Growth - Ideal for Growing Businesses</option>
+                                    <option value="premium-enterprise" style="background-color: #243447; color: #fff;">Premium Enterprise - Complete Business Transformation</option>
+                                    <option value="custom-solution" style="background-color: #243447; color: #fff;">Custom Solution - Tailored to Your Needs</option>
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea name="message" class="form-control bg-white border-0 rounded-3" rows="3" placeholder="Tell us about your project requirements..." required></textarea>
+                                <textarea name="message" class="form-control bg-light border-0 rounded-3 text-white" rows="3" placeholder="Tell us about your project requirements..." style="background-color: #243447 !important;" required></textarea>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-light btn-lg w-100 py-2 py-md-3 rounded-3 fw-bold small" type="submit">
+                                <button class="btn btn-primary btn-lg w-100 py-2 py-md-3 rounded-3 fw-bold small" type="submit">
                                     <i class="fa fa-paper-plane me-2"></i>Send Quote Request
                                 </button>
                             </div>
