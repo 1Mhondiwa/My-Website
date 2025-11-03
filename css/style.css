@@ -128,7 +128,7 @@ h6,
     font-family: 'Nunito', sans-serif;
     position: relative;
     margin-left: 25px;
-    padding: 35px 0;
+    padding: 18px 0; /* smaller height */
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 600;
@@ -137,7 +137,7 @@ h6,
 }
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
-    padding: 20px 0;
+    padding: 12px 0; /* tighter when sticky */
     color: #FFFFFF;
 }
 
@@ -159,6 +159,8 @@ h6,
     .sticky-top.navbar-dark {
         position: relative;
         background: #243447;
+        border-radius: 12px; /* rounded corners on mobile */
+        margin: 6px 8px; /* create space to show rounding */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -186,6 +188,8 @@ h6,
     .sticky-top.navbar-dark {
         position: fixed;
         background: #243447;
+        border-radius: 12px; /* rounded corners on desktop */
+        margin: 8px 12px; /* create space to show rounding */
     }
 
     .navbar-dark .navbar-nav .nav-link::before {
@@ -212,6 +216,15 @@ h6,
     .sticky-top.navbar-dark .navbar-brand h1 {
         color: #FFFFFF;
     }
+    /* reduce brand image size to keep navbar compact */
+    .navbar-dark .navbar-brand img { height: 60px !important; }
+    .sticky-top.navbar-dark .navbar-brand img { height: 50px !important; }
+}
+
+/* Reduce default vertical padding on navbars that use Bootstrap's py-3 utility */
+.navbar.py-3 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
 }
 
 
