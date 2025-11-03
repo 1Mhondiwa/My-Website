@@ -161,6 +161,7 @@ h6,
         background: #243447;
         border-radius: 12px; /* rounded corners on mobile */
         margin: 6px 8px; /* create space to show rounding */
+        width: calc(100% - 16px); /* subtract left and right margins */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -192,7 +193,20 @@ h6,
         position: fixed;
         background: #243447;
         border-radius: 12px; /* rounded corners on desktop */
-        margin: 8px 12px; /* create space to show rounding */
+        margin-top: 8px;
+        margin-bottom: 8px;
+        left: 12px; /* create space to show rounding */
+        right: 12px; /* create space to show rounding */
+        width: auto; /* let left/right determine width */
+        max-width: none;
+        box-sizing: border-box; /* include padding in width */
+    }
+    
+    /* Ensure navbar container has proper spacing */
+    .sticky-top.navbar-dark .container-fluid,
+    .sticky-top.navbar-dark .navbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .navbar-dark .navbar-nav .nav-link::before {
