@@ -235,6 +235,13 @@ h6,
 }
 
 @media (min-width: 992px) {
+    /* Make topbar sticky on desktop */
+    .container-fluid.bg-dark {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
+    
     .navbar-dark {
         position: absolute;
         width: 100%;
@@ -245,7 +252,8 @@ h6,
     }
     
     .sticky-top.navbar-dark {
-        position: fixed;
+        position: sticky;
+        top: 0;
         background: #243447;
         border-radius: 12px; /* rounded corners on desktop */
         margin-top: 8px;
@@ -255,6 +263,7 @@ h6,
         width: auto; /* let left/right determine width */
         max-width: none;
         box-sizing: border-box; /* include padding in width */
+        z-index: 1020;
     }
     
     /* Ensure navbar container has proper spacing */
