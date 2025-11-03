@@ -197,7 +197,7 @@ h6,
     }
     
     .sticky-top.navbar-dark {
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
         right: 0;
@@ -206,7 +206,6 @@ h6,
         margin: 0;
         width: 100%;
         z-index: 1020;
-        margin-top: 45px; /* Push below topbar */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -255,8 +254,8 @@ h6,
     }
     
     .sticky-top.navbar-dark {
-        position: fixed;
-        top: 45px; /* Position below topbar */
+        position: sticky;
+        top: 0;
         background: #243447;
         border-radius: 12px; /* rounded corners on desktop */
         margin-top: 8px;
