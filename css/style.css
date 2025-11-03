@@ -173,6 +173,9 @@ h6,
     .navbar-dark .navbar-brand h1 {
         color: #FFFFFF;
     }
+    /* brand image scaling on small screens */
+    .navbar-dark .navbar-brand img { height: 56px !important; }
+    .sticky-top.navbar-dark .navbar-brand img { height: 48px !important; }
 }
 
 @media (min-width: 992px) {
