@@ -193,10 +193,11 @@ h6,
         position: sticky;
         top: 0;
         z-index: 1030;
+        background-color: #091E3E;
     }
     
     .sticky-top.navbar-dark {
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -205,6 +206,7 @@ h6,
         margin: 0;
         width: 100%;
         z-index: 1020;
+        margin-top: 45px; /* Push below topbar */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -240,6 +242,7 @@ h6,
         position: sticky;
         top: 0;
         z-index: 1030;
+        background-color: #091E3E;
     }
     
     .navbar-dark {
@@ -252,8 +255,8 @@ h6,
     }
     
     .sticky-top.navbar-dark {
-        position: sticky;
-        top: 0;
+        position: fixed;
+        top: 45px; /* Position below topbar */
         background: #243447;
         border-radius: 12px; /* rounded corners on desktop */
         margin-top: 8px;
