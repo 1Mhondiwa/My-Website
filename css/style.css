@@ -188,8 +188,15 @@ h6,
 }
 
 @media (max-width: 991.98px) {
+    /* Make topbar sticky on mobile */
+    .container-fluid.bg-dark {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
+    
     .sticky-top.navbar-dark {
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
         right: 0;
