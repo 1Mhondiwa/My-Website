@@ -188,12 +188,21 @@ h6,
 }
 
 @media (max-width: 991.98px) {
-    .sticky-top.navbar-dark {
+    .navbar-dark {
         position: relative;
+    }
+    
+    .sticky-top.navbar-dark {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
         background: #243447;
-        border-radius: 12px; /* rounded corners on mobile */
-        margin: 6px 8px; /* create space to show rounding */
-        width: calc(100% - 16px); /* subtract left and right margins */
+        border-radius: 0; /* no rounded corners on mobile sticky */
+        margin: 0;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -209,6 +218,34 @@ h6,
     /* brand image scaling on small screens */
     .navbar-dark .navbar-brand img { height: 56px !important; }
     .sticky-top.navbar-dark .navbar-brand img { height: 48px !important; }
+    
+    /* Professional menu button styling */
+    .navbar-dark .navbar-toggler {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.9rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 8px !important;
+        background-color: transparent !important;
+        color: #FFFFFF !important;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-dark .navbar-toggler:hover,
+    .navbar-dark .navbar-toggler:focus {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-dark .navbar-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    .navbar-dark .navbar-toggler span {
+        color: #FFFFFF !important;
+        font-weight: 500;
+        margin-left: 0.5rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -591,4 +628,34 @@ h6,
     color: #FFFFFF !important;
     opacity: 0.7 !important;
     transform: scale(1.1);
+}
+
+/* Topbar mobile responsiveness */
+@media (max-width: 991.98px) {
+    .container-fluid.bg-dark {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    
+    .container-fluid.bg-dark .row {
+        margin: 0;
+    }
+    
+    .container-fluid.bg-dark small {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    
+    /* Ensure topbar content wraps properly on mobile */
+    .container-fluid.bg-dark .d-flex {
+        flex-wrap: wrap !important;
+        gap: 0.25rem;
+    }
+    
+    /* Make email visible on tablets */
+    @media (min-width: 768px) {
+        .container-fluid.bg-dark .d-none.d-md-inline {
+            display: inline !important;
+        }
+    }
 }
