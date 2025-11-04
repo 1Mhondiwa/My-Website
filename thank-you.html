@@ -255,8 +255,19 @@
      <script src="lib/counterup/counterup.min.js"></script>
      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
  
-     <!-- Template Javascript -->
-     <script src="js/main.js"></script>
-</body>
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+      
+      <!-- Sticky Navbar on Scroll -->
+      <script>
+          $(window).scroll(function() {
+              if ($(this).scrollTop() > 45) {
+                  $('.navbar').addClass('sticky-top');
+              } else {
+                  $('.navbar').removeClass('sticky-top');
+              }
+          });
+      </script>
+  </body>
 
 </html>
