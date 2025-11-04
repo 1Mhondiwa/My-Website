@@ -187,48 +187,13 @@ h6,
     border-color: var(--primary) !important;
 }
 
-/* Professional menu button styling */
-.navbar-dark .navbar-toggler.border-0 {
-    border: none !important;
-    padding: 0.5rem 0.75rem;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF !important;
-}
-
-.navbar-dark .navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-dark .navbar-toggler .ms-2 {
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
 @media (max-width: 991.98px) {
-    .navbar-dark {
-        position: relative;
-        margin-top: 0; /* Ensure no negative margin */
-    }
-    
     .sticky-top.navbar-dark {
-        position: fixed !important;
-        top: 0; /* Will adjust via JavaScript on scroll to account for topbar */
-        left: 0;
-        right: 0;
-        width: 100% !important;
-        background: #243447;
-        border-radius: 0; /* no rounded corners on mobile for full-width sticky */
-        margin: 0; /* no margin for full-width sticky */
-        z-index: 999;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Ensure topbar is visible on mobile */
-    .container-fluid.bg-dark {
         position: relative;
-        z-index: 1001; /* Higher than navbar on mobile */
+        background: #243447;
+        border-radius: 12px; /* rounded corners on mobile */
+        margin: 6px 8px; /* create space to show rounding */
+        width: calc(100% - 16px); /* subtract left and right margins */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -246,17 +211,11 @@ h6,
     .sticky-top.navbar-dark .navbar-brand img { height: 48px !important; }
 }
 
-/* Topbar z-index to ensure it's above navbar */
-.container-fluid.bg-dark {
-    position: relative;
-    z-index: 1000;
-}
-
 @media (min-width: 992px) {
     .navbar-dark {
         position: absolute;
         width: 100%;
-        top: 45px; /* Position below topbar (topbar height) */
+        top: 0;
         left: 0;
         border-bottom: 1px solid rgba(256, 256, 256, .1);
         z-index: 999;
@@ -264,10 +223,9 @@ h6,
     
     .sticky-top.navbar-dark {
         position: fixed;
-        top: 53px; /* Position below topbar (45px height + 8px margin) when sticky */
         background: #243447;
         border-radius: 12px; /* rounded corners on desktop */
-        margin-top: 0;
+        margin-top: 8px;
         margin-bottom: 8px;
         left: 12px; /* create space to show rounding */
         right: 12px; /* create space to show rounding */
