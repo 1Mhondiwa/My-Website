@@ -724,3 +724,89 @@ h6,
     border: none !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
 }
+
+/* Mobile App Section Styling */
+.mobile-mockup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.phone-frame {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform: translateX(80px);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.fade-in-up.is-visible .phone-frame {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Text slides from left */
+.mobile-app-section .mobile-text {
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.mobile-app-section .mobile-text.is-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    padding-bottom: 200%; /* Portrait phone aspect ratio */
+    background: #000;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+/* Stagger animation for mobile section */
+.mobile-mockup-container {
+    animation-delay: 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .mobile-mockup-container {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .phone-frame {
+        max-width: 250px;
+    }
+    
+    .mobile-app-section .mobile-text h2 {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .phone-frame {
+        max-width: 200px;
+    }
+}
