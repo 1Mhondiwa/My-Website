@@ -287,6 +287,12 @@ h6,
     z-index: 1;
 }
 
+/* Subtle readability boost for hero headings over video */
+.carousel-caption h1,
+.carousel-caption h5 {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
 @media (max-width: 576px) {
     .carousel-caption h5 {
         font-size: 14px;
