@@ -733,15 +733,14 @@ h6,
     padding: 2rem;
 }
 
-.phone-frame {
+.mobile-card {
     position: relative;
     width: 100%;
-    max-width: 380px;
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    border-radius: 40px;
-    padding: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(255, 255, 255, 0.1);
+    max-width: 600px;
+    background: #243447;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transform: scale(0.5);
     opacity: 0;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -749,7 +748,7 @@ h6,
     will-change: transform, opacity;
 }
 
-/* Text animation - same smooth curve as phone */
+/* Text animation - same smooth curve as card */
 .mobile-app-section .mobile-text {
     opacity: 0;
     transform: scale(0.85);
@@ -758,14 +757,13 @@ h6,
     will-change: transform, opacity;
 }
 
-.phone-screen {
+.mobile-video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 200%; /* Portrait phone aspect ratio */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio for horizontal video */
     background: #000;
-    border-radius: 28px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-video {
@@ -775,7 +773,7 @@ h6,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: 8px;
 }
 
 /* Stagger animation for mobile section */
@@ -790,8 +788,9 @@ h6,
         margin-top: 2rem;
     }
     
-    .phone-frame {
-        max-width: 320px;
+    .mobile-card {
+        max-width: 100%;
+        padding: 1rem;
     }
     
     .mobile-app-section .mobile-text h2 {
@@ -800,7 +799,7 @@ h6,
 }
 
 @media (max-width: 575px) {
-    .phone-frame {
-        max-width: 280px;
+    .mobile-card {
+        padding: 0.75rem;
     }
 }

@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Apply animation to all elements
         animatedElements.forEach(function(element) {
-            if (element.classList.contains('phone-frame')) {
+            if (element.classList.contains('mobile-card')) {
                 element.style.transform = `scale(${phoneScale})`;
                 element.style.opacity = opacity;
             } else if (element.classList.contains('mobile-text')) {
