@@ -739,8 +739,9 @@ h6,
     max-width: 600px;
     background: #243447;
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     transform: scale(0.5);
     opacity: 0;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -762,7 +763,6 @@ h6,
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 aspect ratio for horizontal video */
     background: #000;
-    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -773,7 +773,6 @@ h6,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
 }
 
 /* Stagger animation for mobile section */
@@ -790,16 +789,9 @@ h6,
     
     .mobile-card {
         max-width: 100%;
-        padding: 1rem;
     }
     
     .mobile-app-section .mobile-text h2 {
         font-size: 2rem !important;
-    }
-}
-
-@media (max-width: 575px) {
-    .mobile-card {
-        padding: 0.75rem;
     }
 }
