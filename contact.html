@@ -285,14 +285,7 @@
                         <i class="fa fa-paper-plane text-primary opacity-25 fs-6 fs-md-5"></i>
                     </div>
                     
-                    <form id="contact-form" name="quote-form" class="w-100 position-relative" data-emailjs-service="YOUR_SERVICE_ID" data-emailjs-template="YOUR_TEMPLATE_ID" data-emailjs-public="YOUR_PUBLIC_KEY">
-                        <!-- Hidden field required by Netlify -->
-                        <input type="hidden" name="form-name" value="quote-form" />
-                        
-                        <!-- Add honeypot field for spam protection -->
-                        <div style="display: none;">
-                            <input name="bot-field" />
-                        </div>
+                    <form id="contact-form" name="quote-form" class="w-100 position-relative" data-emailjs-service="service_nu8xmbb" data-emailjs-template="template_kluanvt" data-emailjs-public="84wNkv2mkitvpfgS-">
                        
                         <div class="text-center mb-3 mb-md-4">
                             <div class="d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 50px; height: 50px;">
@@ -464,7 +457,9 @@
                     email: formData.get('email') || '',
                     phone: formData.get('phone') || '',
                     service: formData.get('service') || '',
-                    message: formData.get('message') || ''
+                    message: formData.get('message') || '',
+                    site_url: window.location.href,
+                    submitted_at: new Date().toLocaleString()
                 };
 
                 if (!window.emailjs || !serviceId || !templateId || !publicKey) {
