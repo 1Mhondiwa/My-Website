@@ -150,67 +150,77 @@
     
 })(jQuery);
 
-// Premium 3D scroll animation for mobile section
+// Scroll-based animation for mobile section (Stewart Nyamayaro style - exact replication)
 document.addEventListener('DOMContentLoaded', function() {
-    const phoneFrame = document.querySelector('.phone-frame.scroll-animated');
-    const mobileText = document.querySelector('.mobile-text.scroll-animated');
+    const animatedElements = document.querySelectorAll('.scroll-animated');
     const mobileSection = document.querySelector('.mobile-app-section');
     
-    if (!phoneFrame || !mobileText || !mobileSection) return;
+    if (!animatedElements.length || !mobileSection) return;
+    
+    // Easing function for smooth animation (ease-out-cubic)
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
     
     function updateMobileAnimation() {
         const rect = mobileSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const sectionHeight = rect.height;
         
-        // Calculate progress: 0 (section entering) to 1 (section leaving)
-        const start = windowHeight;
-        const end = -sectionHeight;
-        const range = start - end;
-        const progress = (start - rect.top) / range;
+        // Section enters when bottom hits viewport bottom
+        // Section leaves when top exits viewport top
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
         
-        // Clamp progress between 0 and 1
-        const clampedProgress = Math.max(0, Math.min(1, progress));
+        // Calculate visibility progress
+        // When section bottom enters viewport (sectionBottom = windowHeight), progress starts at 0
+        // When section is centered (sectionTop + sectionHeight/2 = windowHeight/2), progress is at 0.5
+        // When section top exits viewport (sectionTop = 0), progress is at 1
         
-        // Create smooth bell curve with easing
-        let scale, opacity, rotateY, translateX, shadowIntensity;
+        let progress;
         
-        if (clampedProgress < 0.5) {
-            // Entering: smooth ease-in
-            const enterProgress = clampedProgress * 2;
-            const easedProgress = 1 - Math.pow(1 - enterProgress, 3); // Cubic ease out
+        if (sectionBottom < windowHeight && sectionTop > 0) {
+            // Section is fully in viewport - calculate position relative to center
+            const sectionCenter = sectionTop + (sectionHeight / 2);
+            const viewportCenter = windowHeight / 2;
+            const distanceFromCenter = Math.abs(sectionCenter - viewportCenter);
+            const maxDistance = windowHeight / 2 + sectionHeight / 2;
             
-            scale = 0.8 + (easedProgress * 0.2); // 0.8 to 1
-            opacity = easedProgress; // 0 to 1
-            rotateY = -25 + (easedProgress * 25); // -25deg to 0deg (rotate from left)
-            translateX = -30 + (easedProgress * 30); // -30px to 0px
-            shadowIntensity = easedProgress;
+            // Progress: 0 at edges, 1 at center
+            progress = 1 - (distanceFromCenter / maxDistance);
+            progress = Math.max(0, Math.min(1, progress));
+        } else if (sectionBottom >= windowHeight) {
+            // Section entering from bottom
+            const enterProgress = (windowHeight - sectionBottom) / (windowHeight + sectionHeight);
+            progress = Math.max(0, enterProgress + 0.5);
+        } else if (sectionTop <= 0) {
+            // Section leaving from top
+            const exitProgress = Math.abs(sectionTop) / sectionHeight;
+            progress = Math.max(0, 0.5 - exitProgress);
         } else {
-            // Leaving: smooth ease-out
-            const exitProgress = (clampedProgress - 0.5) * 2;
-            const easedProgress = Math.pow(exitProgress, 3); // Cubic ease in
-            
-            scale = 1 - (easedProgress * 0.2); // 1 to 0.8
-            opacity = 1 - easedProgress; // 1 to 0
-            rotateY = 0 + (easedProgress * 25); // 0deg to 25deg (rotate to right)
-            translateX = 0 + (easedProgress * 30); // 0px to 30px
-            shadowIntensity = 1 - easedProgress;
+            progress = 0;
         }
         
-        // Apply 3D transform to phone with dynamic shadows
-        const shadowBlur = 40 * shadowIntensity;
-        const glowIntensity = 0.15 * shadowIntensity;
-        phoneFrame.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
-        phoneFrame.style.opacity = opacity;
-        phoneFrame.style.boxShadow = `
-            0 ${15 + shadowBlur * 0.5}px ${shadowBlur}px rgba(0, 0, 0, ${0.2 * shadowIntensity}),
-            0 0 ${20 + shadowBlur * 0.3}px rgba(33, 150, 243, ${glowIntensity}),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05)
-        `;
+        // Apply easing for smooth animation
+        const easedProgress = easeOutCubic(progress);
         
-        // Apply parallax slide to text
-        mobileText.style.transform = `translateX(${translateX}px)`;
-        mobileText.style.opacity = opacity;
+        // Calculate scale and opacity based on eased progress
+        // At progress 0: scale 0.5, opacity 0
+        // At progress 1: scale 1.0, opacity 1
+        const phoneScale = 0.5 + (easedProgress * 0.5);
+        const textScale = 0.85 + (easedProgress * 0.15);
+        const opacity = easedProgress;
+        
+        // Apply animation to all elements
+        animatedElements.forEach(function(element) {
+            if (element.classList.contains('phone-frame')) {
+                element.style.transform = `scale(${phoneScale})`;
+                element.style.opacity = opacity;
+            } else if (element.classList.contains('mobile-text')) {
+                element.style.transform = `scale(${textScale})`;
+                element.style.opacity = opacity;
+            }
+        });
     }
     
     // Throttle scroll events for performance
@@ -226,5 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateMobileAnimation, { passive: true });
     updateMobileAnimation(); // Initial call
 });
