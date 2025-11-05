@@ -285,7 +285,7 @@
                         <i class="fa fa-paper-plane text-primary opacity-25 fs-6 fs-md-5"></i>
                     </div>
                     
-                    <form name="quote-form" method="POST" netlify action="/thank-you.html" class="w-100 position-relative">
+                    <form id="contact-form" name="quote-form" method="POST" netlify action="/thank-you.html" class="w-100 position-relative" data-emailjs-service="YOUR_SERVICE_ID" data-emailjs-template="YOUR_TEMPLATE_ID" data-emailjs-public="YOUR_PUBLIC_KEY">
                         <!-- Hidden field required by Netlify -->
                         <input type="hidden" name="form-name" value="quote-form" />
                         
@@ -437,6 +437,51 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            const form = document.getElementById('contact-form');
+            if (!form) return;
+
+            // Read EmailJS credentials from data attributes
+            const serviceId = form.getAttribute('data-emailjs-service');
+            const templateId = form.getAttribute('data-emailjs-template');
+            const publicKey = form.getAttribute('data-emailjs-public');
+
+            if (publicKey && window.emailjs) {
+                emailjs.init(publicKey);
+            }
+
+            form.addEventListener('submit', function(e){
+                // If EmailJS not configured yet, let Netlify handle it
+                if (!window.emailjs || !serviceId || !templateId || !publicKey) {
+                    return; // allow default submit
+                }
+
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const params = {
+                    name: formData.get('name') || '',
+                    email: formData.get('email') || '',
+                    phone: formData.get('phone') || '',
+                    service: formData.get('service') || '',
+                    message: formData.get('message') || ''
+                };
+
+                emailjs.send(serviceId, templateId, params)
+                    .then(() => {
+                        window.location.href = '/thank-you.html';
+                    })
+                    .catch(() => {
+                        // Fallback to Netlify submit if EmailJS fails
+                        form.submit();
+                    });
+            });
+        })();
+    </script>
     
     <!-- Sticky Navbar on Scroll -->
     <script>
