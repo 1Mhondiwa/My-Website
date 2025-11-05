@@ -14,8 +14,8 @@
     
     // Modern scroll animations (replaces WOW.js)
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.01,
+        rootMargin: '0px'
     };
 
     const observer = new IntersectionObserver(function(entries) {
@@ -28,8 +28,17 @@
     }, observerOptions);
 
     // Observe all elements with fade-in-up class
-    document.querySelectorAll('.fade-in-up').forEach(el => {
-        observer.observe(el);
+    const fadeEls = document.querySelectorAll('.fade-in-up');
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    fadeEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // If already in viewport on load, reveal immediately to avoid perceived delay
+        if (rect.top < viewportHeight - 10) {
+            el.classList.add('is-visible');
+        } else {
+            observer.observe(el);
+        }
     });
 
 
