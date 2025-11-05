@@ -150,14 +150,14 @@
     
 })(jQuery);
 
-// Scroll-based animation for mobile mockup (Stewart Nyamayaro style)
+// Scroll-based animation for mobile section (Stewart Nyamayaro style)
 document.addEventListener('DOMContentLoaded', function() {
-    const phoneFrame = document.querySelector('.phone-frame.scroll-animated');
+    const animatedElements = document.querySelectorAll('.scroll-animated');
     const mobileSection = document.querySelector('.mobile-app-section');
     
-    if (!phoneFrame || !mobileSection) return;
+    if (!animatedElements.length || !mobileSection) return;
     
-    function updatePhoneAnimation() {
+    function updateMobileAnimation() {
         const rect = mobileSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const sectionHeight = rect.height;
@@ -175,22 +175,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create a bell curve effect:
         // - Scale and opacity increase from 0 to 0.5 (entering)
         // - Scale and opacity decrease from 0.5 to 1 (leaving)
-        let scale, opacity;
+        let phoneScale, textScale, opacity;
         
         if (clampedProgress < 0.5) {
-            // Entering: progress 0-0.5 maps to scale 0.7-1 and opacity 0-1
+            // Entering: progress 0-0.5 maps to scale and opacity 0-1
             const enterProgress = clampedProgress * 2; // 0 to 1
-            scale = 0.7 + (enterProgress * 0.3); // 0.7 to 1
+            phoneScale = 0.7 + (enterProgress * 0.3); // Phone: 0.7 to 1
+            textScale = 0.95 + (enterProgress * 0.05); // Text: 0.95 to 1 (subtle)
             opacity = enterProgress; // 0 to 1
         } else {
-            // Leaving: progress 0.5-1 maps to scale 1-0.7 and opacity 1-0
+            // Leaving: progress 0.5-1 maps to scale 1 back down and opacity 1-0
             const exitProgress = (clampedProgress - 0.5) * 2; // 0 to 1
-            scale = 1 - (exitProgress * 0.3); // 1 to 0.7
+            phoneScale = 1 - (exitProgress * 0.3); // Phone: 1 to 0.7
+            textScale = 1 - (exitProgress * 0.05); // Text: 1 to 0.95
             opacity = 1 - exitProgress; // 1 to 0
         }
         
-        phoneFrame.style.transform = `scale(${scale})`;
-        phoneFrame.style.opacity = opacity;
+        // Apply animation to all elements
+        animatedElements.forEach(function(element) {
+            if (element.classList.contains('phone-frame')) {
+                element.style.transform = `scale(${phoneScale})`;
+                element.style.opacity = opacity;
+            } else if (element.classList.contains('mobile-text')) {
+                element.style.transform = `scale(${textScale})`;
+                element.style.opacity = opacity;
+            }
+        });
     }
     
     // Throttle scroll events for performance
@@ -198,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function onScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
-                updatePhoneAnimation();
+                updateMobileAnimation();
                 ticking = false;
             });
             ticking = true;
@@ -206,5 +216,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', onScroll, { passive: true });
-    updatePhoneAnimation(); // Initial call
+    updateMobileAnimation(); // Initial call
 });
