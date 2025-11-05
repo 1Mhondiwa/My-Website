@@ -600,6 +600,12 @@ h6,
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
+/* Topbar positioning - must appear above fixed hero */
+.container-fluid.bg-dark {
+    position: relative;
+    z-index: 200;
+}
+
 /* Topbar social media icons styling */
 .container-fluid.bg-dark .btn-primary.btn-square {
     background-color: transparent !important;
