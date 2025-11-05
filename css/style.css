@@ -192,7 +192,7 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: transparent; /* keep initial appearance */
+        background: #243447; /* solid background for visibility */
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -220,7 +220,7 @@ h6,
     
     .sticky-top.navbar-dark {
         position: fixed;
-        background: transparent; /* keep initial appearance */
+        background: #243447; /* solid background for visibility */
         width: 100%;
         left: 0;
         border-bottom: 1px solid rgba(256, 256, 256, .1);
