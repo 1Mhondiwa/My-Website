@@ -451,6 +451,13 @@
                 // EmailJS only
                 e.preventDefault();
 
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                
+                // Disable button and show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i>Sending...';
+
                 const formData = new FormData(form);
                 const params = {
                     name: formData.get('name') || '',
@@ -464,15 +471,31 @@
 
                 if (!window.emailjs || !serviceId || !templateId || !publicKey) {
                     alert('Email service not configured yet. Please add your EmailJS Service ID, Template ID, and Public Key.');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
                     return;
                 }
 
                 emailjs.send(serviceId, templateId, params)
                     .then(() => {
-                        window.location.href = '/thank-you.html';
+                        // Show success message
+                        submitButton.innerHTML = '<i class="fa fa-check me-2"></i>Sent Successfully!';
+                        submitButton.classList.add('btn-success');
+                        submitButton.classList.remove('btn-primary');
+                        
+                        // Redirect after 1.5 seconds
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 1500);
                     })
                     .catch((err) => {
                         console.error(err);
+                        // Restore button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.classList.remove('btn-success');
+                        submitButton.classList.add('btn-primary');
+                        
                         alert('Sorry, something went wrong sending your message. Please try again later.');
                     });
             });
