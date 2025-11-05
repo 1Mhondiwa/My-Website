@@ -90,6 +90,11 @@ h6,
     box-shadow: none;
 }
 
+/* All buttons - rounded corners (8px) to match icon containers */
+.btn {
+    border-radius: 8px !important;
+}
+
 /* Primary buttons - match navbar CTA (transparent with full blue border/text) */
 .btn-primary {
     background-color: transparent !important;
