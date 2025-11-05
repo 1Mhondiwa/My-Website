@@ -740,27 +740,21 @@ h6,
     background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
     border-radius: 40px;
     padding: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
                 0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: translateX(80px);
+    transform: scale(0.7);
     opacity: 0;
-    transition: transform 1s ease-out, opacity 1s ease-out;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    will-change: transform, opacity;
 }
 
-.fade-in-up.is-visible .phone-frame {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-/* Text slides from left */
+/* Text animation */
 .mobile-app-section .mobile-text {
-    transform: translateX(-30px);
     opacity: 0;
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    transition: opacity 0.8s ease-out;
 }
 
 .mobile-app-section .mobile-text.is-visible {
-    transform: translateX(0);
     opacity: 1;
 }
 
