@@ -173,10 +173,7 @@ h6,
     transition: .5s;
 }
 
-.sticky-top.navbar-dark .navbar-nav .nav-link {
-    padding: 12px 0; /* tighter when sticky */
-    color: #FFFFFF;
-}
+/* Removed sticky-specific nav-link padding to keep consistent appearance */
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
@@ -195,15 +192,11 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: #243447;
-        border-radius: 12px; /* rounded corners on mobile */
-        margin: 6px 8px; /* create space to show rounding */
-        width: calc(100% - 16px); /* subtract left and right margins */
+        background: transparent; /* keep initial appearance */
     }
 
     .navbar-dark .navbar-nav .nav-link,
-    .navbar-dark .navbar-nav .nav-link.show,
-    .sticky-top.navbar-dark .navbar-nav .nav-link {
+    .navbar-dark .navbar-nav .nav-link.show {
         padding: 10px 0;
         color: #FFFFFF;
     }
@@ -211,9 +204,8 @@ h6,
     .navbar-dark .navbar-brand h1 {
         color: #FFFFFF;
     }
-    /* brand image scaling on small screens */
+    /* brand image consistent size on small screens */
     .navbar-dark .navbar-brand img { height: 56px !important; }
-    .sticky-top.navbar-dark .navbar-brand img { height: 48px !important; }
 }
 
 @media (min-width: 992px) {
@@ -228,22 +220,10 @@ h6,
     
     .sticky-top.navbar-dark {
         position: fixed;
-        background: #243447;
-        border-radius: 12px; /* rounded corners on desktop */
-        margin-top: 8px;
-        margin-bottom: 8px;
-        left: 12px; /* create space to show rounding */
-        right: 12px; /* create space to show rounding */
-        width: auto; /* let left/right determine width */
-        max-width: none;
-        box-sizing: border-box; /* include padding in width */
-    }
-    
-    /* Ensure navbar container has proper spacing */
-    .sticky-top.navbar-dark .container-fluid,
-    .sticky-top.navbar-dark .navbar {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        background: transparent; /* keep initial appearance */
+        width: 100%;
+        left: 0;
+        border-bottom: 1px solid rgba(256, 256, 256, .1);
     }
 
     .navbar-dark .navbar-nav .nav-link::before {
@@ -267,12 +247,11 @@ h6,
         display: none;
     }
 
-    .sticky-top.navbar-dark .navbar-brand h1 {
+    .navbar-dark .navbar-brand h1 {
         color: #FFFFFF;
     }
-    /* reduce brand image size to keep navbar compact */
+    /* keep brand image consistent size */
     .navbar-dark .navbar-brand img { height: 60px !important; }
-    .sticky-top.navbar-dark .navbar-brand img { height: 50px !important; }
 }
 
 /* Reduce default vertical padding on navbars that use Bootstrap's py-3 utility */
