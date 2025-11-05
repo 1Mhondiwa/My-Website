@@ -736,7 +736,7 @@ h6,
 .phone-frame {
     position: relative;
     width: 100%;
-    max-width: 280px;
+    max-width: 380px;
     background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
     border-radius: 40px;
     padding: 12px;
@@ -791,7 +791,7 @@ h6,
     }
     
     .phone-frame {
-        max-width: 250px;
+        max-width: 320px;
     }
     
     .mobile-app-section .mobile-text h2 {
@@ -801,6 +801,6 @@ h6,
 
 @media (max-width: 575px) {
     .phone-frame {
-        max-width: 200px;
+        max-width: 280px;
     }
 }
