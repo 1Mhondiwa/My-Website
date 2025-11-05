@@ -694,3 +694,13 @@ h6,
         opacity: 1 !important;
     }
 }
+
+/* Success Modal Styling */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-content {
+    border: none !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
