@@ -608,3 +608,78 @@ h6,
     opacity: 0.7 !important;
     transform: scale(1.1);
 }
+
+/*** Modern Scroll Animations - Replace WOW.js ***/
+/* Fade + subtle slide up animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger timing for professional polish */
+.fade-in-up:nth-child(1) { transition-delay: 0s; }
+.fade-in-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-in-up:nth-child(4) { transition-delay: 0.3s; }
+.fade-in-up:nth-child(5) { transition-delay: 0.4s; }
+.fade-in-up:nth-child(6) { transition-delay: 0.5s; }
+
+/* Micro-interactions for cards */
+.bg-light.shadow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-light.shadow:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Icon border color shift on hover */
+.bg-light.shadow:hover [style*="border: 2px solid"] {
+    border-color: rgba(33, 150, 243, 0.6) !important;
+}
+
+/* Button hover micro-interaction */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* CTA button subtle pulse */
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(33, 150, 243, 0); }
+}
+
+.navbar .btn-primary {
+    animation: pulse-glow 3s infinite;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up,
+    .bg-light.shadow,
+    .btn,
+    * {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .fade-in-up {
+        opacity: 1 !important;
+    }
+}
