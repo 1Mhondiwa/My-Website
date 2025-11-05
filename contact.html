@@ -285,7 +285,7 @@
                         <i class="fa fa-paper-plane text-primary opacity-25 fs-6 fs-md-5"></i>
                     </div>
                     
-                    <form id="contact-form" name="quote-form" method="POST" netlify action="/thank-you.html" class="w-100 position-relative" data-emailjs-service="YOUR_SERVICE_ID" data-emailjs-template="YOUR_TEMPLATE_ID" data-emailjs-public="YOUR_PUBLIC_KEY">
+                    <form id="contact-form" name="quote-form" class="w-100 position-relative" data-emailjs-service="YOUR_SERVICE_ID" data-emailjs-template="YOUR_TEMPLATE_ID" data-emailjs-public="YOUR_PUBLIC_KEY">
                         <!-- Hidden field required by Netlify -->
                         <input type="hidden" name="form-name" value="quote-form" />
                         
@@ -455,11 +455,7 @@
             }
 
             form.addEventListener('submit', function(e){
-                // If EmailJS not configured yet, let Netlify handle it
-                if (!window.emailjs || !serviceId || !templateId || !publicKey) {
-                    return; // allow default submit
-                }
-
+                // EmailJS only
                 e.preventDefault();
 
                 const formData = new FormData(form);
@@ -471,13 +467,18 @@
                     message: formData.get('message') || ''
                 };
 
+                if (!window.emailjs || !serviceId || !templateId || !publicKey) {
+                    alert('Email service not configured yet. Please add your EmailJS Service ID, Template ID, and Public Key.');
+                    return;
+                }
+
                 emailjs.send(serviceId, templateId, params)
                     .then(() => {
                         window.location.href = '/thank-you.html';
                     })
-                    .catch(() => {
-                        // Fallback to Netlify submit if EmailJS fails
-                        form.submit();
+                    .catch((err) => {
+                        console.error(err);
+                        alert('Sorry, something went wrong sending your message. Please try again later.');
                     });
             });
         })();
@@ -494,19 +495,7 @@
         });
     </script>
 
-    <!-- Hidden form for Netlify detection - keep this exactly as is -->
-<form name="quote-form" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <select name="service">
-        <option value="basic-starter">Basic Starter - Perfect for Startups</option>
-        <option value="standard-growth">Standard Growth - Ideal for Growing Businesses</option>
-        <option value="premium-enterprise">Premium Enterprise - Complete Business Transformation</option>
-        <option value="custom-solution">Custom Solution - Tailored to Your Needs</option>
-    </select>
-    <textarea name="message"></textarea>
-</form>
+    <!-- Netlify form removed - using EmailJS only -->
 </body>
 
 </html>
