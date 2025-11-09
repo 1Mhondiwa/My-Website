@@ -233,9 +233,8 @@
                     <h2 class="m-0 d-block d-sm-none">Hussle Digital</h2>
                 </div>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="ms-2 fw-bold">Menu</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
@@ -310,7 +309,7 @@
                 <div class="position-relative h-100">
                     <!-- Image with professional styling -->
                     <div class="position-relative h-100 overflow-hidden" style="border-radius: 20px; min-height: 400px;">
-                        <img class="position-absolute w-100 h-100 fade-in-up" src="img/about.png" style="object-fit: cover;" alt="About Hussle Digital">
+                        <img class="position-absolute w-100 h-100 fade-in-up" src="img/homes_2.jpg" style="object-fit: cover;" alt="About Hussle Digital">
                                 </div>
                 </div>
             </div>
@@ -778,6 +777,21 @@
             } else {
                 $('#page-content').css('margin-top', '0');
             }
+        });
+        
+        // Hamburger menu toggle animation
+        $('.navbar-toggler').on('click', function() {
+            var expanded = $(this).attr('aria-expanded') === 'true';
+            $(this).attr('aria-expanded', !expanded);
+        });
+        
+        // Update aria-expanded on collapse events
+        $('#navbarCollapse').on('shown.bs.collapse', function() {
+            $('.navbar-toggler').attr('aria-expanded', 'true');
+        });
+        
+        $('#navbarCollapse').on('hidden.bs.collapse', function() {
+            $('.navbar-toggler').attr('aria-expanded', 'false');
         });
     </script>
 

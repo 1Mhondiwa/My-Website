@@ -294,6 +294,21 @@
                 $('.navbar').removeClass('sticky-top');
             }
         });
+        
+        // Hamburger menu toggle animation
+        $('.navbar-toggler').on('click', function() {
+            var expanded = $(this).attr('aria-expanded') === 'true';
+            $(this).attr('aria-expanded', !expanded);
+        });
+        
+        // Update aria-expanded on collapse events
+        $('#navbarCollapse').on('shown.bs.collapse', function() {
+            $('.navbar-toggler').attr('aria-expanded', 'true');
+        });
+        
+        $('#navbarCollapse').on('hidden.bs.collapse', function() {
+            $('.navbar-toggler').attr('aria-expanded', 'false');
+        });
     </script>
 </body>
 

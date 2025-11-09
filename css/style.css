@@ -197,6 +197,21 @@ h6,
 .navbar-dark .navbar-toggler {
     color: var(--primary) !important;
     border-color: var(--primary) !important;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger to X animation */
+.navbar-toggler .fa-bars {
+    transition: all 0.3s ease;
+}
+
+/* When navbar is expanded, change icon to X */
+.navbar-toggler[aria-expanded="true"] .fa-bars:before {
+    content: "\f00d" !important; /* Font Awesome X (times) icon */
+}
+
+.navbar-toggler[aria-expanded="true"] {
+    transform: rotate(90deg);
 }
 
 @media (max-width: 991.98px) {
