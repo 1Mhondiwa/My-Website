@@ -277,15 +277,6 @@
     </div>
     <!-- Navbar & Carousel End -->
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-</body>
-</html>
-
 <!-- Content wrapper for parallax scroll effect -->
 <div id="page-content" style="position: relative; z-index: 10; background: #1a252f;">
 
@@ -751,40 +742,43 @@
     
     <!-- Sticky Navbar on Scroll -->
     <script>
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 45) {
-                $('.navbar').addClass('sticky-top');
-            } else {
-                $('.navbar').removeClass('sticky-top');
-            }
-        });
-        
-        // Desktop parallax effect only
-        if ($(window).width() >= 992) {
-            $('#page-content').css('margin-top', '100vh');
-        } else {
-            $('#page-content').css('margin-top', '0');
-        }
-        
-        // Update on window resize
-        $(window).resize(function() {
+        $(document).ready(function() {
+            // Sticky navbar
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 45) {
+                    $('.navbar').addClass('sticky-top');
+                } else {
+                    $('.navbar').removeClass('sticky-top');
+                }
+            });
+            
+            // Desktop parallax effect only
             if ($(window).width() >= 992) {
                 $('#page-content').css('margin-top', '100vh');
             } else {
                 $('#page-content').css('margin-top', '0');
             }
-        });
-        
-        // Hamburger menu toggle animation - initialize aria-expanded
-        $('.navbar-toggler').attr('aria-expanded', 'false');
-        
-        // Update aria-expanded on collapse events (Bootstrap handles the actual collapse)
-        $('#navbarCollapse').on('show.bs.collapse', function() {
-            $('.navbar-toggler').attr('aria-expanded', 'true');
-        });
-        
-        $('#navbarCollapse').on('hide.bs.collapse', function() {
+            
+            // Update on window resize
+            $(window).resize(function() {
+                if ($(window).width() >= 992) {
+                    $('#page-content').css('margin-top', '100vh');
+                } else {
+                    $('#page-content').css('margin-top', '0');
+                }
+            });
+            
+            // Hamburger menu toggle animation - initialize aria-expanded
             $('.navbar-toggler').attr('aria-expanded', 'false');
+            
+            // Update aria-expanded on collapse events (Bootstrap handles the actual collapse)
+            $('#navbarCollapse').on('show.bs.collapse', function() {
+                $('.navbar-toggler').attr('aria-expanded', 'true');
+            });
+            
+            $('#navbarCollapse').on('hide.bs.collapse', function() {
+                $('.navbar-toggler').attr('aria-expanded', 'false');
+            });
         });
     </script>
 

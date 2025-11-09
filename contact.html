@@ -523,24 +523,27 @@
     
     <!-- Sticky Navbar on Scroll -->
     <script>
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 45) {
-                $('.navbar').addClass('sticky-top');
-            } else {
-                $('.navbar').removeClass('sticky-top');
-            }
-        });
-        
-        // Hamburger menu toggle animation - initialize aria-expanded
-        $('.navbar-toggler').attr('aria-expanded', 'false');
-        
-        // Update aria-expanded on collapse events (Bootstrap handles the actual collapse)
-        $('#navbarCollapse').on('show.bs.collapse', function() {
-            $('.navbar-toggler').attr('aria-expanded', 'true');
-        });
-        
-        $('#navbarCollapse').on('hide.bs.collapse', function() {
+        $(document).ready(function() {
+            // Sticky navbar
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 45) {
+                    $('.navbar').addClass('sticky-top');
+                } else {
+                    $('.navbar').removeClass('sticky-top');
+                }
+            });
+            
+            // Hamburger menu toggle animation - initialize aria-expanded
             $('.navbar-toggler').attr('aria-expanded', 'false');
+            
+            // Update aria-expanded on collapse events (Bootstrap handles the actual collapse)
+            $('#navbarCollapse').on('show.bs.collapse', function() {
+                $('.navbar-toggler').attr('aria-expanded', 'true');
+            });
+            
+            $('#navbarCollapse').on('hide.bs.collapse', function() {
+                $('.navbar-toggler').attr('aria-expanded', 'false');
+            });
         });
     </script>
 
