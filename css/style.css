@@ -640,14 +640,12 @@ h6,
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .fade-in-up.is-visible {
     opacity: 1;
     transform: translateY(0);
-    will-change: auto;
 }
 
 /* Force immediate reveal for above-the-fold elements */
@@ -666,8 +664,7 @@ h6,
 
 /* Micro-interactions for cards */
 .bg-light.shadow {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform, box-shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bg-light.shadow:hover {
@@ -682,8 +679,7 @@ h6,
 
 /* Hover animation for all shadow cards (including WhatsApp card) */
 .shadow {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform, box-shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .shadow:hover {
@@ -798,103 +794,6 @@ h6,
 /* Stagger animation for mobile section */
 .mobile-mockup-container {
     animation-delay: 0.2s;
-}
-
-/* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 100px;
-    right: 20px;
-    background: #25D366;
-    color: #FFFFFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    will-change: transform, box-shadow;
-}
-
-.whatsapp-float:hover {
-    background: #20BA5A;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-}
-
-.whatsapp-float:active {
-    transform: scale(0.95);
-}
-
-.whatsapp-float i {
-    color: #FFFFFF;
-    font-size: 32px;
-}
-
-/* Hide on mobile if back-to-top button is visible, or adjust position */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        bottom: 90px;
-        right: 15px;
-    }
-    
-    .whatsapp-float i {
-        font-size: 28px;
-    }
-}
-
-/* Mobile Performance Optimizations */
-@media (max-width: 768px) {
-    /* Reduce animations on mobile for better performance */
-    .bg-light.shadow,
-    .shadow {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    /* Improve touch targets - minimum 44x44px for accessibility */
-    .btn {
-        min-height: 44px;
-        min-width: 44px;
-        padding: 0.5rem 1rem;
-    }
-    
-    /* Better tap feedback */
-    .btn:active,
-    a:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-    }
-    
-    /* Smooth scrolling on mobile */
-    html {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Optimize image rendering on mobile */
-    img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-    
-    /* Reduce motion for users who prefer it */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-    }
 }
 
 /* Responsive adjustments */
