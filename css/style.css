@@ -725,6 +725,11 @@ h6,
     }
 }
 
+/* Footer about card - rounded corners */
+.footer-about .bg-light {
+    border-radius: 15px !important;
+}
+
 /* Rounded logo styling for navbar and footer */
 .navbar-dark .navbar-brand img,
 .footer-about img {
