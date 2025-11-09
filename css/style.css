@@ -989,6 +989,66 @@ h6,
     .col-lg-5[style*="min-height: 400px"] {
         min-height: 300px !important;
     }
+    
+    /* Contact page feature cards - make more compact on mobile */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center {
+        padding: 0.75rem !important;
+        min-height: auto !important;
+    }
+    
+    /* Reduce icon size on contact feature cards for mobile */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center [style*="width: 60px"] {
+        width: 45px !important;
+        height: 45px !important;
+        margin-right: 0.75rem !important;
+    }
+    
+    /* Reduce icon font size on contact feature cards */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center .fs-4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Reduce text sizes on contact feature cards */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center h6 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center small {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* Extra small screens - make contact cards even more compact */
+@media (max-width: 576px) {
+    /* Contact page feature cards - extra compact on phones */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center {
+        padding: 0.6rem !important;
+    }
+    
+    /* Further reduce icon size on very small screens */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center [style*="width: 60px"] {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 0.6rem !important;
+    }
+    
+    /* Smaller icon font */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center .fs-4 {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Smaller text on phones */
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center h6 {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center small {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+    }
 }
 
 /* Responsive adjustments */
