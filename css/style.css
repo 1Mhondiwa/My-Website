@@ -1018,6 +1018,40 @@ h6,
         font-size: 0.75rem !important;
         line-height: 1.3 !important;
     }
+    
+    /* Free Consultation CTA card - make more compact on mobile */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 {
+        padding: 0.75rem !important;
+    }
+    
+    /* Reduce icon size in Free Consultation card */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 [style*="width: 60px"] {
+        width: 45px !important;
+        height: 45px !important;
+        margin-right: 0.75rem !important;
+    }
+    
+    /* Reduce icon font in Free Consultation card */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 .fs-4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Reduce heading size in Free Consultation card */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 h5 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Reduce spacing in Free Consultation card icon container */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 .d-flex.align-items-center.mb-3 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Reduce description text in Free Consultation card */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 p.small {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+    }
 }
 
 /* Extra small screens - make contact cards even more compact */
@@ -1048,6 +1082,40 @@ h6,
     .container-fluid.py-5 .bg-light.shadow.d-flex.align-items-center small {
         font-size: 0.7rem !important;
         line-height: 1.2 !important;
+    }
+    
+    /* Free Consultation CTA card - extra compact on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 {
+        padding: 0.6rem !important;
+    }
+    
+    /* Further reduce icon size in Free Consultation card on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 [style*="width: 60px"] {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 0.6rem !important;
+    }
+    
+    /* Smaller icon font on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 .fs-4 {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Smaller heading on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 h5 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+    
+    /* Reduce spacing in Free Consultation card icon container on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 .d-flex.align-items-center.mb-3 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Smaller description on phones */
+    .bg-light.shadow.p-3.p-md-4.rounded-4 p.small {
+        font-size: 0.7rem !important;
+        line-height: 1.3 !important;
     }
 }
 
