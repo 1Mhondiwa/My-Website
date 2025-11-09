@@ -244,15 +244,11 @@
                     <a href="projects.html" class="nav-item nav-link">Projects</a>
                     
                 </div>
-                <a href="contact.html" class="btn btn-primary rounded ms-2 ms-lg-3 d-none d-lg-inline-block">
+                
+                <a href="contact.html" class="btn btn-primary rounded ms-3">
                     Start Your Project
-                </a>
-                <!-- Mobile CTA Button -->
-                <div class="d-lg-none mt-3">
-                    <a href="contact.html" class="btn btn-primary rounded w-100">
-                        Start Your Project
-                    </a>
-                </div>
+                  </a>
+                  
             </div>
         </nav>
 
@@ -779,18 +775,15 @@
             }
         });
         
-        // Hamburger menu toggle animation
-        $('.navbar-toggler').on('click', function() {
-            var expanded = $(this).attr('aria-expanded') === 'true';
-            $(this).attr('aria-expanded', !expanded);
-        });
+        // Hamburger menu toggle animation - initialize aria-expanded
+        $('.navbar-toggler').attr('aria-expanded', 'false');
         
-        // Update aria-expanded on collapse events
-        $('#navbarCollapse').on('shown.bs.collapse', function() {
+        // Update aria-expanded on collapse events (Bootstrap handles the actual collapse)
+        $('#navbarCollapse').on('show.bs.collapse', function() {
             $('.navbar-toggler').attr('aria-expanded', 'true');
         });
         
-        $('#navbarCollapse').on('hidden.bs.collapse', function() {
+        $('#navbarCollapse').on('hide.bs.collapse', function() {
             $('.navbar-toggler').attr('aria-expanded', 'false');
         });
     </script>
