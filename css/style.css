@@ -195,14 +195,26 @@ h6,
 }
 
 .navbar-dark .navbar-toggler {
-    color: var(--primary) !important;
-    border-color: var(--primary) !important;
-    transition: all 0.3s ease;
+    background-color: transparent !important;
+    border: 1px solid #2196F3 !important;
+    color: #2196F3 !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-dark .navbar-toggler:hover,
+.navbar-dark .navbar-toggler:focus {
+    background-color: rgba(33, 150, 243, 0.1) !important;
+    border-color: #2196F3 !important;
+    color: #2196F3 !important;
+    transform: translateY(-2px);
 }
 
 /* Hamburger to X animation */
 .navbar-toggler .fa-bars {
     transition: all 0.3s ease;
+    color: #2196F3 !important;
 }
 
 /* When navbar is expanded, change icon to X */
@@ -212,6 +224,11 @@ h6,
 
 .navbar-toggler[aria-expanded="true"] {
     transform: rotate(90deg);
+}
+
+.navbar-toggler[aria-expanded="true"]:hover,
+.navbar-toggler[aria-expanded="true"]:focus {
+    transform: rotate(90deg) translateY(-2px);
 }
 
 @media (max-width: 991.98px) {
