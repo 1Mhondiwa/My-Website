@@ -285,11 +285,27 @@ h6,
 #header-carousel .carousel-inner,
 #header-carousel .carousel-item {
     height: 100vh;
+    position: relative;
+}
+
+/* Blue tint overlay for hero video - subtle to keep video visible */
+#header-carousel .carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 30, 62, 0.35); /* 35% opacity - same blue as header but lighter */
+    z-index: 1;
+    pointer-events: none;
 }
 
 #header-carousel video {
     height: 100vh;
     object-fit: cover;
+    position: relative;
+    z-index: 0;
 }
 
 .carousel-caption {
@@ -298,7 +314,7 @@ h6,
     right: 0;
     bottom: 0;
     background: transparent;
-    z-index: 1;
+    z-index: 2; /* Above the overlay */
 }
 
 /* Subtle readability boost for hero headings over video */
