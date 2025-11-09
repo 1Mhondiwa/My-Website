@@ -292,7 +292,7 @@
 </html>
 
 <!-- Content wrapper for parallax scroll effect -->
-<div id="page-content" style="position: relative; z-index: 10; background: #1a252f; margin-top: 100vh;">
+<div id="page-content" style="position: relative; z-index: 10; background: #1a252f;">
 
 <!-- About Start -->
 <div class="container-fluid py-5 fade-in-up">
@@ -761,6 +761,22 @@
                 $('.navbar').addClass('sticky-top');
             } else {
                 $('.navbar').removeClass('sticky-top');
+            }
+        });
+        
+        // Desktop parallax effect only
+        if ($(window).width() >= 992) {
+            $('#page-content').css('margin-top', '100vh');
+        } else {
+            $('#page-content').css('margin-top', '0');
+        }
+        
+        // Update on window resize
+        $(window).resize(function() {
+            if ($(window).width() >= 992) {
+                $('#page-content').css('margin-top', '100vh');
+            } else {
+                $('#page-content').css('margin-top', '0');
             }
         });
     </script>

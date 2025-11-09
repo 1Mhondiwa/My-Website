@@ -200,9 +200,18 @@ h6,
 }
 
 @media (max-width: 991.98px) {
+    /* Make navbar always have solid background on mobile */
+    .navbar-dark {
+        background: #243447 !important;
+        position: relative !important;
+    }
+    
     .sticky-top.navbar-dark {
-        position: relative;
-        background: #243447; /* solid background for visibility */
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        background: #243447 !important;
+        z-index: 999 !important;
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -214,6 +223,14 @@ h6,
     .navbar-dark .navbar-brand h1 {
         color: #FFFFFF;
     }
+    
+    /* Collapsed menu styling - solid background */
+    .navbar-dark .navbar-collapse {
+        background: #243447 !important;
+        padding: 1rem;
+        margin: 0 -1rem;
+    }
+    
     /* brand image consistent size on small screens */
     .navbar-dark .navbar-brand img { height: 56px !important; }
 }
@@ -323,6 +340,31 @@ h6,
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
+/* Mobile hero adjustments - no fixed positioning on mobile */
+@media (max-width: 991.98px) {
+    #header-carousel {
+        position: relative !important;
+        height: 60vh !important;
+        min-height: 500px;
+    }
+    
+    #header-carousel .carousel-inner,
+    #header-carousel .carousel-item {
+        height: 60vh !important;
+        min-height: 500px;
+    }
+    
+    #header-carousel video {
+        height: 60vh !important;
+        min-height: 500px;
+    }
+    
+    /* Remove the dark blue solid background issue */
+    #page-content {
+        margin-top: 0 !important;
+    }
+}
+
 @media (max-width: 576px) {
     .carousel-caption h5 {
         font-size: 14px;
@@ -332,6 +374,18 @@ h6,
     .carousel-caption h1 {
         font-size: 30px;
         font-weight: 600 !important;
+    }
+    
+    #header-carousel {
+        height: 50vh !important;
+        min-height: 400px;
+    }
+    
+    #header-carousel .carousel-inner,
+    #header-carousel .carousel-item,
+    #header-carousel video {
+        height: 50vh !important;
+        min-height: 400px;
     }
 }
 
@@ -794,6 +848,65 @@ h6,
 /* Stagger animation for mobile section */
 .mobile-mockup-container {
     animation-delay: 0.2s;
+}
+
+/* Mobile service card improvements */
+@media (max-width: 767.98px) {
+    /* Fix service card display on mobile */
+    .bg-light.shadow {
+        min-height: 240px !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Ensure service cards stack properly */
+    .service-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Adjust service card padding for mobile */
+    .bg-light.shadow.p-3 {
+        padding: 1.5rem !important;
+    }
+    
+    /* Fix icon container sizing on mobile */
+    .bg-light.shadow [style*="width: 60px"] {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    /* Adjust heading sizes in service cards */
+    .bg-light.shadow h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Adjust list items in service cards */
+    .bg-light.shadow .list-unstyled li {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Carousel caption mobile adjustments */
+    .carousel-caption {
+        padding: 1rem !important;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Topbar mobile improvements */
+    .container-fluid.bg-dark small {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Footer mobile improvements */
+    .footer-about {
+        margin-bottom: 0 !important;
+    }
+    
+    /* About section image fix for mobile */
+    .col-lg-5[style*="min-height: 400px"] {
+        min-height: 300px !important;
+    }
 }
 
 /* Responsive adjustments */
