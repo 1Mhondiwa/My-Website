@@ -265,7 +265,7 @@
                         <div class="p-2 p-md-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-2 mb-md-3 animated slideInDown fs-6 fs-md-5">Digital Solutions That Drive Results</h5>
                             <h1 class="display-3 display-md-1 text-white mb-3 mb-md-4 animated zoomIn">Your Complete Digital Partner for Web, Mobile & E-Commerce</h1>
-                            <p class="fs-6 fs-md-5 text-white mb-3 mb-md-4 pb-2 d-none d-sm-block">From custom websites to mobile apps and online stores—we build digital solutions that help businesses worldwide grow, scale, and succeed</p>
+                            <p class="fs-6 fs-md-5 text-white mb-3 mb-md-4 pb-2">From custom websites to mobile apps and online stores—we build digital solutions that help businesses worldwide grow, scale, and succeed</p>
                             
                         </div>
                     </div>
@@ -752,20 +752,12 @@
                 }
             });
             
-            // Desktop parallax effect only
-            if ($(window).width() >= 992) {
-                $('#page-content').css('margin-top', '100vh');
-            } else {
-                $('#page-content').css('margin-top', '0');
-            }
+            // Parallax effect - hero is sticky on all screen sizes now
+            $('#page-content').css('margin-top', '100vh');
             
             // Update on window resize
             $(window).resize(function() {
-                if ($(window).width() >= 992) {
-                    $('#page-content').css('margin-top', '100vh');
-                } else {
-                    $('#page-content').css('margin-top', '0');
-                }
+                $('#page-content').css('margin-top', '100vh');
             });
             
             // Hamburger menu toggle animation - initialize aria-expanded
